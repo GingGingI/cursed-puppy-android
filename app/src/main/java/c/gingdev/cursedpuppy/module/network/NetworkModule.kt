@@ -20,7 +20,7 @@ class NetworkModule {
     private val CONNECT_TIMEOUT: Long = 30 //Sec
     private val WRITE_TIMEOUT: Long = 30 //Sec
     private val READ_TIMEOUT: Long = 30 //Sec
-    private val baseUrl: String = "https://www.google.com"
+    private val baseUrl: String = "https://mmm.forial.tk" // Server Url
 
     @Provides
     @Singleton
@@ -39,7 +39,7 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(cache: Cache, interceptor: Interceptor): OkHttpClient {
-        val logger: HttpLoggingInterceptor = HttpLoggingInterceptor()
+        val logger = HttpLoggingInterceptor()
         if (BuildConfig.DEBUG) {
             logger.level = HttpLoggingInterceptor.Level.BODY
         } else {
