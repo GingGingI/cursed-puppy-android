@@ -1,7 +1,6 @@
 package c.gingdev.cursedpuppy.utils
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 
 class ListLiveData<T>: LiveData<ArrayList<T>>() {
     private val arrayData: ArrayList<T> = ArrayList()
