@@ -1,12 +1,15 @@
 package c.gingdev.cursedpuppy
 
 import android.os.Bundle
+import android.util.Log
 import c.gingdev.cursedpuppy.component.DaggerMainActivityComponent
 import c.gingdev.cursedpuppy.module.ActivityModule
 import c.gingdev.cursedpuppy.module.adapter.AdapterModule
+import c.gingdev.cursedpuppy.services.CurseService
 import c.gingdev.cursedpuppy.ui.InjectableActivity
 import c.gingdev.cursedpuppy.utils.adapter.AdapterFactory
 import c.gingdev.cursedpuppy.utils.adapter.BasicAdapter
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -30,6 +33,17 @@ class MainActivity: InjectableActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 
+		retrofit.create(CurseService::class.java).getPuppyList("v1")
+			.doOnSuccess {
+				it.forEachIndexed { index, puppyModel ->
+					Log.e("puppy", puppyModel.name)
+				}
+			}
+			.doOnError {
+				Log.e("error", it.message ?: "unknown")
+			}
+			.subscribeOn(Schedulers.io())
+			.subscribe()
 		recycler.adapter = adapter.also {
 			it.item.add(1)
 			it.item.add(2)

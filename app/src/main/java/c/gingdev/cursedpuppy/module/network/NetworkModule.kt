@@ -9,6 +9,7 @@ import dagger.Provides
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.net.CookieManager
 import java.net.CookiePolicy
@@ -20,7 +21,7 @@ class NetworkModule {
     private val CONNECT_TIMEOUT: Long = 30 //Sec
     private val WRITE_TIMEOUT: Long = 30 //Sec
     private val READ_TIMEOUT: Long = 30 //Sec
-    private val baseUrl: String = "https://mmm.forial.tk" // Server Url
+    private val baseUrl: String = "http://mmm.forial.tk" // Server Url
 
     @Provides
     @Singleton
@@ -63,6 +64,7 @@ class NetworkModule {
     fun provideRetrofit(gson: Gson, client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(gson))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(client)
             .baseUrl(baseUrl)
             .build()
