@@ -1,6 +1,6 @@
-package c.gingdev.cursedpuppy.services
+package c.gingdev.cursedpuppy.data.rest
 
-import c.gingdev.cursedpuppy.models.puppyModel
+import c.gingdev.cursedpuppy.data.models.puppyModel
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
