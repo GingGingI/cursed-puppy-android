@@ -1,12 +1,23 @@
 package c.gingdev.cursedpuppy.ui.main
 
 import android.os.Bundle
-import dagger.android.support.DaggerAppCompatActivity
+import c.gingdev.cursedpuppy.R
+import c.gingdev.cursedpuppy.base.BaseActivity
+import c.gingdev.cursedpuppy.ui.list.MainListFragment
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
-class MainActivity: DaggerAppCompatActivity() {
+class MainActivity: BaseActivity() {
+
+    override fun layoutRes(): Int {
+        return R.layout.activity_main
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().add(R.id.mainFrame, MainListFragment()).commit()
+        }
     }
 }

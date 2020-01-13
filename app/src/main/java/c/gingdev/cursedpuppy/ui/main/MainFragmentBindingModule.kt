@@ -1,4 +1,4 @@
-package c.gingdev.cursedpuppy.di.module.view
+package c.gingdev.cursedpuppy.ui.main
 
 import c.gingdev.cursedpuppy.ui.list.MainListFragment
 import dagger.Module

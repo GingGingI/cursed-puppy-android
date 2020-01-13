@@ -5,6 +5,7 @@ import c.gingdev.cursedpuppy.base.App
 import c.gingdev.cursedpuppy.di.module.view.ActivityBindingModule
 import c.gingdev.cursedpuppy.di.module.network.NetworkModule
 import c.gingdev.cursedpuppy.di.module.basic.AppModule
+import c.gingdev.cursedpuppy.di.module.view.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -26,7 +27,6 @@ interface AppComponent: AndroidInjector<DaggerApplication> {
     interface Builder {
         @BindsInstance
         fun application(app: Application): Builder
-
         fun build(): AppComponent
     }
 }

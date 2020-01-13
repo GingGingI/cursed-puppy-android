@@ -1,6 +1,5 @@
 package c.gingdev.cursedpuppy.utils
 
-import androidx.annotation.NonNull
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import java.lang.Exception
@@ -8,19 +7,10 @@ import java.lang.IllegalArgumentException
 import java.lang.RuntimeException
 import javax.inject.Inject
 import javax.inject.Provider
-import javax.inject.Singleton
 
-@Singleton
-class ViewModelFactory: ViewModelProvider.Factory {
-    private val creators: Map<Class<out ViewModel>, Provider<ViewModel>>
+class ViewModelFactory @Inject constructor(private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>)
+    : ViewModelProvider.Factory {
 
-    @Inject
-    constructor(creators: Map<Class<out ViewModel>, Provider<ViewModel>>) {
-        this.creators = creators
-    }
-
-    @NonNull
-    @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         var creator: Provider<out ViewModel>? = creators[modelClass]
 
