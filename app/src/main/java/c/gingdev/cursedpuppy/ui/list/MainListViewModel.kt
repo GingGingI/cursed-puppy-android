@@ -1,11 +1,13 @@
 package c.gingdev.cursedpuppy.ui.list
 
-import android.app.Application
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
+import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
+import c.gingdev.cursedpuppy.BR
+import c.gingdev.cursedpuppy.R
+import c.gingdev.cursedpuppy.data.models.PuppyModel
 import c.gingdev.cursedpuppy.data.rest.CurseService
-import c.gingdev.cursedpuppy.di.component.DaggerListVMComponet
+import c.gingdev.cursedpuppy.databinding.LayoutListPuppyBinding
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -13,7 +15,11 @@ import javax.inject.Inject
 class MainListViewModel @Inject constructor(private val retrofit: Retrofit): ViewModel() {
     val TAG = "MainListVM"
 
-    var helloText = MutableLiveData<String>()
+    var adapter: BindListAdapter<PuppyModel, LayoutListPuppyBinding>
+            = object: BindListAdapter<PuppyModel, LayoutListPuppyBinding>(
+        layoutRes = R.layout.layout_list_puppy,
+        list = ObservableArrayList(),
+        bindingVariableID = BR.puppy) {}
 
     init {
         getPuppy()
@@ -24,7 +30,7 @@ class MainListViewModel @Inject constructor(private val retrofit: Retrofit): Vie
             .getPuppyList("v1")
             .doOnSuccess {
                 it.forEach { puppy ->
-                    Log.i(TAG, puppy.name)
+                    adapter.list?.add(puppy)
                 }
             }.doOnError {
                 Log.e(TAG, it.message ?: "unknown")

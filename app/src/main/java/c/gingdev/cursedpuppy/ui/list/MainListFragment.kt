@@ -5,8 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import c.gingdev.cursedpuppy.BR
 import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseFragment
-import c.gingdev.cursedpuppy.databinding.LayoutBasicBinding
-import c.gingdev.cursedpuppy.utils.ViewModelFactory
+import c.gingdev.cursedpuppy.databinding.FragmentBasicBinding
 import javax.inject.Inject
 
 class MainListFragment: BaseFragment() {
@@ -15,7 +14,7 @@ class MainListFragment: BaseFragment() {
     lateinit var vm: ViewModel
 
     override fun layoutRes(): Int {
-        return R.layout.layout_basic
+        return R.layout.fragment_basic
     }
 
     override fun binding() {
