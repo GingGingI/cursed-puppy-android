@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
 
-            android:text="Hello"
+            android:text="@{vm.helloText}"
             android:textSize="50sp"
 
             app:layout_constraintBottom_toBottomOf="parent"

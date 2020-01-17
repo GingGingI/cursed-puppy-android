@@ -9,7 +9,7 @@ import dagger.Provides
 import dagger.android.DaggerApplication
 import javax.inject.Singleton
 
-@Module(includes = [ViewModelModule::class])
+@Module
 abstract class AppModule {
     @Binds
     abstract fun provideApp(app: Application): Context

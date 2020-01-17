@@ -5,7 +5,7 @@ import c.gingdev.cursedpuppy.ui.main.MainFragmentBindingModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-@Module
+@Module(includes = [ViewModelModule::class])
 abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = [MainFragmentBindingModule::class])
     abstract fun bindMainActivity(): MainActivity

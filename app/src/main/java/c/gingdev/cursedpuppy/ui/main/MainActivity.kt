@@ -13,9 +13,7 @@ class MainActivity: BaseActivity() {
         return R.layout.activity_main
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun onCreated(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction().add(R.id.mainFrame, MainListFragment()).commit()
         }

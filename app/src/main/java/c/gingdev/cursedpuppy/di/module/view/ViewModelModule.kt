@@ -7,6 +7,7 @@ import c.gingdev.cursedpuppy.ui.list.MainListViewModel
 import c.gingdev.cursedpuppy.utils.ViewModelFactory
 import dagger.Binds
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 @Module
