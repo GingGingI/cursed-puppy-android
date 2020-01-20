@@ -2,6 +2,7 @@ package c.gingdev.cursedpuppy.base
 
 import c.gingdev.cursedpuppy.di.component.AppComponent
 import c.gingdev.cursedpuppy.di.component.DaggerAppComponent
+import c.gingdev.cursedpuppy.utils.event.PuppyEventBus
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

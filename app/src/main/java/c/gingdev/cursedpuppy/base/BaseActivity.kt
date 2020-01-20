@@ -3,6 +3,7 @@ package c.gingdev.cursedpuppy.base
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import c.gingdev.cursedpuppy.utils.event.PuppyEventBus
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 
@@ -16,6 +17,14 @@ abstract class BaseActivity: DaggerAppCompatActivity() {
 
         setContentView(layoutRes())
         onCreated(savedInstanceState)
+
+        PuppyEventBus.register(this)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        PuppyEventBus.unregister(this)
+    }
+
     protected abstract fun onCreated(savedInstanceState: Bundle?)
 }

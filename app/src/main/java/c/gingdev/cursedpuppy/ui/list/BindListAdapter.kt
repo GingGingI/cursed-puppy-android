@@ -1,5 +1,7 @@
 package c.gingdev.cursedpuppy.ui.list
 
+import android.util.Log
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.ObservableArrayList
@@ -7,6 +9,12 @@ import androidx.databinding.ObservableList
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
+import c.gingdev.cursedpuppy.utils.DebouncedClickListener
+
+/**
+ * need to change
+ * Observable -> MutableLiveData
+ * */
 
 abstract class BindListAdapter<ITEM: Any?, BINDING: ViewDataBinding> (
     val list: ObservableArrayList<ITEM>?,
@@ -49,5 +57,14 @@ abstract class BindListAdapter<ITEM: Any?, BINDING: ViewDataBinding> (
 
     override fun onBindViewHolder(holder: BindListHolder<BINDING>, position: Int) {
         holder.bind(list!![position])
+
+//        onclick
+        holder.itemView.setOnClickListener(object: DebouncedClickListener() {
+            override fun debounceClicked(view: View?) {
+                onItemClicked(list[position])
+            }
+        })
     }
+
+    abstract fun onItemClicked(item: ITEM)
 }

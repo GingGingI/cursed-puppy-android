@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import c.gingdev.cursedpuppy.utils.event.PuppyEventBus
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
@@ -34,11 +35,15 @@ abstract class BaseFragment: DaggerFragment() {
         AndroidSupportInjection.inject(this)
         super.onAttach(context)
         activity = context as AppCompatActivity
+
+        PuppyEventBus.register(this)
     }
 
     override fun onDetach() {
         super.onDetach()
         activity = null
+
+        PuppyEventBus.unregister(this)
     }
 
     abstract fun binding()
