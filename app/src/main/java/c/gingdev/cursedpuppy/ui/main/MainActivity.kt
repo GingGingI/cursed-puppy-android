@@ -30,7 +30,7 @@ class MainActivity: BaseActivity() {
     }
 
     private fun initDrawer() {
-        val drawerToggle = object: ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground) {
+        val drawerToggle = object: ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_left_arrow, R.drawable.ic_left_arrow) {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
                 super.onDrawerSlide(drawerView, slideOffset)
                 val slideX = navDrawer.width * slideOffset

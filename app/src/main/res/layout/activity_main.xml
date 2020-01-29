@@ -33,6 +33,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
 
+                app:title="멈뭄미"
+
                 android:background="@color/none"
 
                 app:layout_constraintTop_toBottomOf="@id/statusBar"/>
@@ -62,15 +64,44 @@
             android:layout_gravity="end"
             android:fitsSystemWindows="true">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
 
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:padding="8dp"
+
+                        android:src="@drawable/ic_left_arrow"
+                        android:background="@color/none"
+                        android:scaleType="fitXY"
+
+                        app:layout_constraintDimensionRatio="W,1:1"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cursedTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+
+                        android:text="멈뭄미"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.navigation.NavigationView>
-
     </androidx.drawerlayout.widget.DrawerLayout>
-
 </layout>

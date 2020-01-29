@@ -21,7 +21,7 @@ object NetworkModule {
     private val CONNECT_TIMEOUT: Long = 30 //Sec
     private val WRITE_TIMEOUT: Long = 30 //Sec
     private val READ_TIMEOUT: Long = 30 //Sec
-    private val baseUrl: String = "http://nigga.shop:8011"
+    private val baseUrl: String = "http://nigga.shop:8012"
 //    or mmm.forial.tk
 
     @Provides
