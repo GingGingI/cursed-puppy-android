@@ -1,5 +1,6 @@
 package c.gingdev.cursedpuppy.di.module.view
 
+import c.gingdev.cursedpuppy.ui.etc.ErrorActivity
 import c.gingdev.cursedpuppy.ui.main.MainActivity
 import c.gingdev.cursedpuppy.ui.main.MainFragmentBindingModule
 import dagger.Module
@@ -9,4 +10,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBindingModule {
     @ContributesAndroidInjector(modules = [MainFragmentBindingModule::class])
     abstract fun bindMainActivity(): MainActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindErrorActivity(): ErrorActivity
 }

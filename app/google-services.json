@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "940395021937",
+    "firebase_url": "https://cursedpuppy.firebaseio.com",
+    "project_id": "cursedpuppy",
+    "storage_bucket": "cursedpuppy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940395021937:android:d46a9f618be66a334d7dd0",
+        "android_client_info": {
+          "package_name": "c.gingdev.cursedpuppy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940395021937-26a4ftl6a2o5kdrvub1peukl8eiuf120.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "c.gingdev.cursedpuppy",
+            "certificate_hash": "a4cc5e033e8cc6593e8d7c8e4d7dfeeb641e6725"
+          }
+        },
+        {
+          "client_id": "940395021937-cb5b2mjr51o4sb61qaefu5ft686o77d0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8cf05TqugbX9yF5kRfcT1lu-R4fpVpRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940395021937-cb5b2mjr51o4sb61qaefu5ft686o77d0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

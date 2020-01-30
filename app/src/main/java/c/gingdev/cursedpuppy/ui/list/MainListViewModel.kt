@@ -1,5 +1,6 @@
 package c.gingdev.cursedpuppy.ui.list
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.databinding.Bindable
 import androidx.databinding.ObservableArrayList
@@ -10,6 +11,7 @@ import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.data.models.PuppyModel
 import c.gingdev.cursedpuppy.data.rest.CurseService
 import c.gingdev.cursedpuppy.databinding.LayoutListPuppyBinding
+import com.crashlytics.android.Crashlytics
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import retrofit2.Retrofit
@@ -35,17 +37,16 @@ class MainListViewModel @Inject constructor(private val retrofit: Retrofit): Vie
         getPuppy()
     }
 
+    @SuppressLint("CheckResult")
     private fun getPuppy() {
         retrofit.create(CurseService::class.java)
             .getPuppyList("v1")
             .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
             .doOnSuccess {
                 it.forEach { puppy ->
                     adapter.list?.add(puppy)
                 }
-            }.doOnError {
-                Log.e(TAG, it.message ?: "unknown")
-            }.subscribeOn(Schedulers.io())
-            .subscribe()
+            }.subscribe()
     }
 }

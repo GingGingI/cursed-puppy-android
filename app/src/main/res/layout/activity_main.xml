@@ -94,7 +94,6 @@
 
                         android:text="멈뭄미"
                         android:textSize="24sp"
-                        android:textStyle="bold"
                         android:gravity="center"
 
                         app:layout_constraintStart_toStartOf="parent"
