@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">멈뭄미</string>
 
-    <string name="error_found">이러면 안되는데..</string>
+    <string name="error_found">이러면 안되는데...</string>
     <string name="error_found_detail">사소한일로 오류가났나봅니다.\n다시한번 시도해주세요.</string>
 
     <string name="com.crashlytics.useFirebaseAppId">true</string>

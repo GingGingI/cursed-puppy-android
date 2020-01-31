@@ -10,6 +10,9 @@ import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseActivity
 import c.gingdev.cursedpuppy.data.models.PuppyModel
 import c.gingdev.cursedpuppy.ui.list.MainListFragment
+import c.gingdev.cursedpuppy.utils.ui.checkBackgroundColor
+import c.gingdev.cursedpuppy.utils.ui.getStatusBarHeight
+import c.gingdev.cursedpuppy.utils.ui.statusBarTransparent
 import com.squareup.otto.Subscribe
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,9 +30,15 @@ class MainActivity: BaseActivity() {
         }
 
         initDrawer()
+        checkBackgroundColor(drawerLayout)
     }
 
     private fun initDrawer() {
+        getStatusBarHeight().run {
+            statusBar.layoutParams.height = this
+            navStatusBar.layoutParams.height = this
+        }
+
         val drawerToggle = object: ActionBarDrawerToggle(this, drawerLayout, R.drawable.ic_left_arrow, R.drawable.ic_left_arrow) {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
                 super.onDrawerSlide(drawerView, slideOffset)

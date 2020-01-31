@@ -2,10 +2,10 @@ package c.gingdev.cursedpuppy.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import c.gingdev.cursedpuppy.utils.event.PuppyEventBus
+import c.gingdev.cursedpuppy.utils.ui.statusBarTransparent
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 
@@ -17,6 +17,7 @@ abstract class BaseActivity: DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        statusBarTransparent()
 
         binding = DataBindingUtil.setContentView(this, layoutRes())
         onCreated(savedInstanceState)

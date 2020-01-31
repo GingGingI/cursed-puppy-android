@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -9,9 +11,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
+        android:id="@+id/parentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -21,8 +21,6 @@
             android:layout_height="0dp"
 
             android:src="@drawable/ic_warning"
-
-            android:layout_margin="8dp"
 
             app:layout_constraintDimensionRatio="H,3:2"
 
@@ -38,13 +36,13 @@
             android:text="@string/error_found"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#333"
+            android:textColor="@color/colorBlack"
 
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageGuide"/>
+            app:layout_constraintTop_toBottomOf="@id/textTopGuide"/>
 
         <TextView
             android:id="@+id/errorFoundDetailText"
@@ -54,8 +52,9 @@
             android:text="@string/error_found_detail"
             android:textSize="18sp"
             android:textAlignment="center"
+            android:textColor="@color/colorGray"
 
-            android:layout_margin="16dp"
+            android:layout_margin="8dp"
 
             app:layout_constraintTop_toBottomOf="@id/errorFoundText"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,15 +68,20 @@
 
             android:text="새로고침"
             android:textSize="18sp"
+            android:textColor="@color/colorBlack"
             android:padding="16dp"
 
             android:layout_margin="16dp"
+            android:background="@color/none"
+            android:textStyle="bold"
 
             app:layout_constraintDimensionRatio="H, 2:6"
 
-            app:layout_constraintTop_toBottomOf="@id/errorFoundDetailText"
+            app:layout_constraintTop_toTopOf="@id/buttonGuide"
+            app:layout_constraintBottom_toBottomOf="@id/buttonGuide"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/imageGuide"
@@ -85,6 +89,23 @@
             android:layout_height="wrap_content"
 
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/textTopGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/buttonGuide"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

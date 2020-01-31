@@ -8,6 +8,8 @@ import c.gingdev.cursedpuppy.BR
 import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseActivity
 import c.gingdev.cursedpuppy.databinding.ActivityErrorBinding
+import c.gingdev.cursedpuppy.utils.ui.checkBackgroundColor
+import kotlinx.android.synthetic.main.activity_error.*
 
 class ErrorActivity: BaseActivity() {
     private val TAG = "ERRORACTIVITY"
@@ -29,6 +31,8 @@ class ErrorActivity: BaseActivity() {
             startActivity(lastActivityIntent)
             finish()
         }
+
+        checkBackgroundColor(parentView)
     }
 
     companion object {

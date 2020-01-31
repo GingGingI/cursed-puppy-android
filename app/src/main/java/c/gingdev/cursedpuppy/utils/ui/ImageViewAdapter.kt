@@ -1,6 +1,5 @@
-package c.gingdev.cursedpuppy.utils.vm
+package c.gingdev.cursedpuppy.utils.ui
 
-import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import c.gingdev.cursedpuppy.R
@@ -19,5 +18,4 @@ object ImageViewAdapter {
                 .into(imageView)
         }
     }
-
 }
