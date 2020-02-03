@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseActivity
 import c.gingdev.cursedpuppy.data.models.PuppyModel
@@ -26,7 +27,10 @@ class MainActivity: BaseActivity() {
 
     override fun onCreated(savedInstanceState: Bundle?) {
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().add(R.id.mainFrame, MainListFragment()).commit()
+            supportFragmentManager.beginTransaction()
+                .add(R.id.mainFrame, MainListFragment())
+//                .add(R.id.navFrame)
+                .commit()
         }
 
         initDrawer()
@@ -48,8 +52,21 @@ class MainActivity: BaseActivity() {
                     translationX = slideX * -0.3f
                 }
             }
+
+//            Drawer Swipe Lock 설정
+            override fun onDrawerOpened(drawerView: View) {
+                super.onDrawerOpened(drawerView)
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            }
+            override fun onDrawerClosed(drawerView: View) {
+                super.onDrawerClosed(drawerView)
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            }
         }
 
+        navBackButton.setOnClickListener {
+            drawerLayout.closeDrawer(GravityCompat.END)
+        }
         drawerLayout.apply {
             layoutParams.width = resources.displayMetrics.widthPixels
             drawerElevation = 0f
@@ -62,7 +79,9 @@ class MainActivity: BaseActivity() {
 
     @Subscribe
     fun isPuppyClicked(puppy: PuppyModel) {
-        Log.e("Main", puppy.name)
+        navTitleView.text = puppy.name
+        titleView.text = puppy.name
+
         drawerLayout.openDrawer(GravityCompat.END)
     }
 }
