@@ -28,7 +28,7 @@
         android:src="@drawable/ic_launcher_foreground"
         android:scaleType="centerCrop"
 
-        app:loadImage="@{`https://mediakix.com/wp-content/uploads/2017/09/Screen-Shot-2017-09-29-at-11.52.49-AM.png`}"
+        app:loadImage="@{puppy.src}"
         app:layout_constraintDimensionRatio="W,1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
