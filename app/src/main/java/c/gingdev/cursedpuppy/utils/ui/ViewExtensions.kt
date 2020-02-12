@@ -8,12 +8,14 @@ import android.view.Window
 import android.view.WindowManager
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import c.gingdev.cursedpuppy.R
+import com.google.android.material.internal.NavigationMenuView
+import com.google.android.material.navigation.NavigationView
 
 fun Activity.statusBarTransparent() {
     window.apply {
-        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
 
         setWindowFlag(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, false)
         statusBarColor = Color.TRANSPARENT
@@ -68,4 +70,13 @@ fun Activity.checkBackgroundColor(view: View): Int {
     }
 
     return color
+}
+
+fun NavigationView.disableScroll() {
+    val navMenu = this.getChildAt(0) as NavigationMenuView
+    navMenu.layoutManager = object: LinearLayoutManager(this.context) {
+        override fun canScrollVertically(): Boolean {
+            return false
+        }
+    }
 }

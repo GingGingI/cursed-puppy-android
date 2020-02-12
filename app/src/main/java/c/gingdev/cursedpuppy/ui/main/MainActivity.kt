@@ -2,18 +2,19 @@ package c.gingdev.cursedpuppy.ui.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseActivity
 import c.gingdev.cursedpuppy.data.models.PuppyModel
+import c.gingdev.cursedpuppy.ui.etc.CursedTranslatorFragment
 import c.gingdev.cursedpuppy.ui.list.MainListFragment
 import c.gingdev.cursedpuppy.utils.ui.checkBackgroundColor
+import c.gingdev.cursedpuppy.utils.ui.disableScroll
 import c.gingdev.cursedpuppy.utils.ui.getStatusBarHeight
-import c.gingdev.cursedpuppy.utils.ui.statusBarTransparent
 import com.squareup.otto.Subscribe
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,7 +30,7 @@ class MainActivity: BaseActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .add(R.id.mainFrame, MainListFragment())
-//                .add(R.id.navFrame)
+                .add(R.id.navFrame, CursedTranslatorFragment(null))
                 .commit()
         }
 
@@ -67,6 +68,13 @@ class MainActivity: BaseActivity() {
         navBackButton.setOnClickListener {
             drawerLayout.closeDrawer(GravityCompat.END)
         }
+        navDrawer.disableScroll()
+        ViewCompat.setOnApplyWindowInsetsListener(navFrame) {v, insets ->
+            insets.replaceSystemWindowInsets(0, 0, 0, insets.systemWindowInsetBottom).apply {
+                ViewCompat.onApplyWindowInsets(v, this)
+            }
+        }
+        
         drawerLayout.apply {
             layoutParams.width = resources.displayMetrics.widthPixels
             drawerElevation = 0f

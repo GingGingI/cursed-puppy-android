@@ -22,8 +22,8 @@ class ErrorActivity: BaseActivity() {
     }
 
     override fun onCreated(savedInstanceState: Bundle?) {
-//        Log.e("errorActivity", errorText)
         Log.e(TAG, "$lastActivityIntent")
+        Log.e(TAG, "errorText : $errorText")
 
         binding.setVariable(BR.errorText, errorText)
 

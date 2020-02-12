@@ -4,49 +4,74 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="fill_parent"
+
+        android:fillViewport="true">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/inputFrame"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="160dp"
+            android:minHeight="180dp"
 
             android:background="@drawable/bg_black_rectangle_rounded"
+            android:elevation="4dp"
 
-            android:padding="16dp"
             android:layout_margin="16dp"
 
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@id/inputGuideTop"
+            app:layout_constraintBottom_toBottomOf="@id/inputGuideBottom" >
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+            <EditText
+                android:id="@+id/inputText"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
 
-                android:text="당신은 네모네모 멍멍이의 저주를 받았"
                 android:textSize="24sp"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorGray"
+                android:hint="여기에 입력하시면"
+                android:textColorHint="@color/colorGray"
 
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@color/none"
+
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                android:gravity="top|start"
+
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-
+                app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/resultText"
-            android:layout_width="0dp"
+            android:id="@+id/outputText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:text="담신믄 네모네모 멈멈미믜 저주를 받..."
+            android:hint="여기에 출력됩니다..."
             android:textSize="24sp"
+            android:textColor="@color/colorBlack"
 
-            android:layout_margin="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
 
-            app:layout_constraintTop_toBottomOf="@id/inputFrame"
-            app:layout_constraintStart_toStartOf="@id/inputFrame"
-            app:layout_constraintEnd_toEndOf="@id/inputFrame"/>
+            app:layout_constraintTop_toTopOf="@id/inputGuideBottom" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inputGuideTop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".05"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/inputGuideBottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".35"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

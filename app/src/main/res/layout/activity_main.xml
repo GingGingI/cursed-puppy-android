@@ -130,6 +130,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
 
+                    android:fitsSystemWindows="true"
+
                     app:layout_constraintTop_toBottomOf="@id/navToolBar"
                     app:layout_constraintBottom_toBottomOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
