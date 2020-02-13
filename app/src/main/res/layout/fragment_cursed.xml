@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="vm"
+            type="c.gingdev.cursedpuppy.ui.etc.CursedTranslatorViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
 
         android:fillViewport="true">
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,6 +43,8 @@
                 android:padding="8dp"
                 android:gravity="top|start"
 
+                android:onTextChanged="@{vm::onTextChanged}"
+
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -47,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
+            android:text="@{vm.cursedText}"
             android:hint="여기에 출력됩니다..."
             android:textSize="24sp"
             android:textColor="@color/colorBlack"
