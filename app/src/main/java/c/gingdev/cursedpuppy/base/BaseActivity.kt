@@ -21,13 +21,10 @@ abstract class BaseActivity: DaggerAppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, layoutRes())
         onCreated(savedInstanceState)
-
-        PuppyEventBus.register(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        PuppyEventBus.unregister(this)
     }
 
     protected abstract fun onCreated(savedInstanceState: Bundle?)

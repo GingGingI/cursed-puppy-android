@@ -1,140 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
+    <data>
+        <variable
+            name="selectedPuppy"
+            type="c.gingdev.cursedpuppy.ui.etc.SelectedPuppyViewModel" />
+    </data>
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        tools:openDrawer="end">
+        android:background="@color/colorWhite">
+
+        <!-- StartingView | Without Status -->
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutFrame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
 
-            android:background="@color/colorWhite">
-
-            <!--toolBar&statusBar-->
-            <View
-                android:id="@+id/statusBar"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-
-                android:background="@color/none"
-
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/toolBar"/>
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolBar"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/startingToolBar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
 
-                android:background="@color/none"
+                android:padding="4dp"
+                app:layout_constraintTop_toTopOf="parent">
 
-                app:layout_constraintTop_toBottomOf="@id/statusBar">
-
-                <TextView
-                    android:id="@+id/titleView"
-                    android:layout_width="match_parent"
+                <ImageButton
+                    android:id="@+id/toolbar_menu"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    app:layout_constraintDimensionRatio="1:1"
 
-                    android:text="@string/app_name"
-                    android:textSize="24sp"
-                    android:textColor="@color/colorBlack"
+                    android:background="@color/none"
+                    android:src="@drawable/ic_menu"
+                    android:scaleType="fitCenter"
 
-                    android:gravity="center"/>
+                    app:layout_constraintEnd_toEndOf="parent"/>
 
-            </androidx.appcompat.widget.Toolbar>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <FrameLayout
-                android:id="@+id/mainFrame"
+            <ImageView
+                android:id="@+id/appIcon"
+                android:layout_width="120dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+
+                android:src="@drawable/mmm_no_bg"
+                android:scaleType="fitCenter"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/startingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="멈멈!"
+                android:textColor="@color/colorBlack"
+                android:textSize="36sp"
+
+                app:layout_constraintStart_toStartOf="@id/appIcon"
+                app:layout_constraintEnd_toEndOf="@id/appIcon"
+                app:layout_constraintBottom_toTopOf="@id/startingTextGuide"/>
+
+            <TextView
+                android:id="@+id/startingContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_margin="16dp"
+
+                android:text="화면을 터치해 시작해주세요"
+                android:textColor="@color/colorGray"
+                android:textSize="16sp"
+
+                app:layout_constraintTop_toBottomOf="@id/startingTitle"
+                app:layout_constraintStart_toStartOf="@id/appIcon"
+                app:layout_constraintEnd_toEndOf="@id/appIcon"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startingTextGuide"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
 
-                app:layout_constraintTop_toBottomOf="@id/toolBar"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".8"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- navDrawer -->
-        <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navDrawer"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-
-            android:background="@color/colorWhite"
-
-            android:orientation="vertical"
-            android:layout_marginStart="-64dp"
-            android:layout_gravity="end"
-
-            app:insetForeground="@null">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <View
-                    android:id="@+id/navStatusBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/navToolBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-
-                    app:layout_constraintTop_toBottomOf="@id/navStatusBar">
-
-                    <ImageButton
-                        android:id="@+id/navBackButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:src="@drawable/ic_left_arrow"
-                        android:background="@color/none"
-                        android:scaleType="fitCenter"
-                        android:paddingTop="12dp"
-                        android:paddingBottom="12dp"
-
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
-
-                    <TextView
-                        android:id="@+id/navTitleView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:text="멈멈"
-                        android:textSize="24sp"
-                        android:textColor="@color/colorBlack"
-
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <FrameLayout
-                    android:id="@+id/navFrame"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-
-                    android:fitsSystemWindows="true"
-
-                    app:layout_constraintTop_toBottomOf="@id/navToolBar"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.navigation.NavigationView>
-    </androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

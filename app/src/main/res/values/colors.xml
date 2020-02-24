@@ -7,6 +7,8 @@
 
     <color name="transparentBlack">#33000000</color>
 
+    <color name="mainYellow">#FFCF33</color>
+
     <color name="colorRealBlack">#FF000000</color>
     <color name="colorBlack">#FF4f4f4f</color>
     <color name="colorGray">#FF888888</color>

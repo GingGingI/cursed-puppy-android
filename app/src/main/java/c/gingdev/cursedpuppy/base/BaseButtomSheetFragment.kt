@@ -7,16 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
 import c.gingdev.cursedpuppy.utils.event.PuppyEventBus
-import dagger.android.AndroidInjection
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.android.support.AndroidSupportInjection
-import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment: DaggerFragment() {
+abstract class BaseButtomSheetFragment: BottomSheetDialogFragment() {
     @LayoutRes
     abstract fun layoutRes(): Int
     private var activity: AppCompatActivity? = null

@@ -10,6 +10,7 @@ import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import c.gingdev.cursedpuppy.R
+import c.gingdev.cursedpuppy.utils.DebouncedClickListener
 import com.google.android.material.internal.NavigationMenuView
 import com.google.android.material.navigation.NavigationView
 
@@ -72,11 +73,10 @@ fun Activity.checkBackgroundColor(view: View): Int {
     return color
 }
 
-fun NavigationView.disableScroll() {
-    val navMenu = this.getChildAt(0) as NavigationMenuView
-    navMenu.layoutManager = object: LinearLayoutManager(this.context) {
-        override fun canScrollVertically(): Boolean {
-            return false
+fun View.setDebounceClickListener(f: () -> Unit) {
+    this.setOnClickListener(object: DebouncedClickListener() {
+        override fun debounceClicked(view: View?) {
+            f()
         }
-    }
+    })
 }
