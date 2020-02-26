@@ -11,9 +11,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_white_top_rounded"
+
+        android:paddingTop="24dp"
         android:minHeight="240dp">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 

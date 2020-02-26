@@ -20,9 +20,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.main.MainActivity"/>
         <activity
-            android:name=".ui.main.MainActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:name=".ui.main.CursedActivity"
+            android:theme="@style/AppTheme.MainColor"/>
         <activity android:name=".ui.etc.ErrorActivity"/>
     </application>
 

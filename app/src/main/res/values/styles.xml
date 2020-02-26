@@ -23,6 +23,21 @@
         <item name="android:fontFamily">@font/binggrae</item>
     </style>
 
+    <!--yellow theme-->
+    <style name="AppTheme.MainColor" parent="AppTheme">
+        <item name="android:statusBarColor">@color/mainYellow</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!--custom bottom sheet-->
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bg_white_top_rounded</item>
+    </style>
+
     <!--transparent theme-->
     <style name="AppTheme.Transparent" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>

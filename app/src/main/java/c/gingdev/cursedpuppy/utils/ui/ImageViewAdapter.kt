@@ -10,8 +10,8 @@ object ImageViewAdapter {
 
     @JvmStatic
     @BindingAdapter(value = ["app:loadImage"], requireAll = true)
-    fun loadImage(imageView: ImageView, imageUrl: String) {
-        if (imageUrl.isNotEmpty()) {
+    fun loadImage(imageView: ImageView, imageUrl: String?) {
+        if (imageUrl?.isNotEmpty() == true) {
             Glide.with(imageView.context)
                 .load(imageUrl)
                 .transform(RoundedCorners(25))

@@ -24,7 +24,7 @@
             android:fitsSystemWindows="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/startingToolBar"
+                android:id="@+id/toolBarStarting"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
 
@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageButton
-                    android:id="@+id/toolbar_menu"
+                    android:id="@+id/toolbarMenu"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     app:layout_constraintDimensionRatio="1:1"
