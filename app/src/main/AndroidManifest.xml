@@ -21,9 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity"/>
-        <activity
-            android:name=".ui.main.CursedActivity"
-            android:theme="@style/AppTheme.MainColor"/>
+        <activity android:name=".ui.main.CursedActivity"/>
         <activity android:name=".ui.etc.ErrorActivity"/>
     </application>
 

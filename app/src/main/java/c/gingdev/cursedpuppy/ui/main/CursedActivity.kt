@@ -3,7 +3,10 @@ package c.gingdev.cursedpuppy.ui.main
 import android.os.Bundle
 import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseActivity
+import c.gingdev.cursedpuppy.utils.ui.checkBackgroundColor
+import c.gingdev.cursedpuppy.utils.ui.statusBarTransparent
 import kotlinx.android.synthetic.main.activity_cursed.*
+import kotlinx.android.synthetic.main.activity_cursed.parentView
 
 
 class CursedActivity: BaseActivity() {
@@ -13,6 +16,9 @@ class CursedActivity: BaseActivity() {
 
     override fun onCreated(savedInstanceState: Bundle?) {
         initView()
+
+        statusBarTransparent()
+        checkBackgroundColor(parentView)
     }
 
     private fun initView() {

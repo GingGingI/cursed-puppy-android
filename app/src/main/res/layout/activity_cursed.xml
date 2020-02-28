@@ -12,100 +12,109 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/parentView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBarCursed"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-
-            android:background="@color/mainYellow"
-
-            app:layout_constraintTop_toTopOf="parent">
-            <TextView
-                android:id="@+id/toolBarCursedTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-
-                android:text="멈멈"
-                style="@style/TextAppearance.AppCompat.Large"
-
-                android:layout_gravity="center"
-                android:gravity="center"/>
-        </androidx.appcompat.widget.Toolbar>
+        android:background="@color/colorWhite">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cursedTypeView"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
 
-            app:layout_constraintTop_toBottomOf="@id/toolBarCursed">
-
-            <View
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBarCursed"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="?attr/actionBarSize"
 
-                android:background="@color/mainYellow"
+                android:background="@color/none"
 
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/typeViewBackgroundGuide" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/typeView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:layout_margin="24dp"
-                android:elevation="4dp"
-                android:padding="12dp"
-
-                android:background="@drawable/bg_white_rectangle_rounded"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" >
-
-                <ImageView
-                    android:id="@+id/typeImage"
-                    android:layout_width="0dp"
+                app:layout_constraintTop_toTopOf="parent">
+                <TextView
+                    android:id="@+id/toolBarCursedTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
 
-                    android:src="@drawable/ic_launcher_foreground"
-                    android:scaleType="fitCenter"
+                    android:text="멈멈"
+                    style="@style/TextAppearance.AppCompat.Large"
 
-                    app:layout_constraintDimensionRatio="1:1"
+                    android:layout_gravity="center"
+                    android:gravity="center"/>
+            </androidx.appcompat.widget.Toolbar>
 
-                    app:layout_constraintStart_toStartOf="parent"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cursedTypeView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/toolBarCursed">
 
-                    android:text="멈뭄미"
-                    android:layout_marginStart="12dp"
+                <View
+                    android:id="@+id/toolBarExpandView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
 
-                    app:layout_constraintStart_toEndOf="@id/typeImage"
+                    android:background="@color/none"
+
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="@id/typeViewBackgroundGuide" />
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/typeView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:layout_margin="24dp"
+                    android:elevation="4dp"
+                    android:padding="12dp"
+
+                    android:background="@drawable/bg_white_rectangle_rounded"
+                    android:backgroundTint="@color/mainYellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+                    <ImageView
+                        android:id="@+id/typeImage"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+
+                        android:src="@drawable/ic_launcher_foreground"
+                        android:scaleType="fitCenter"
+
+                        app:layout_constraintDimensionRatio="1:1"
+
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="멈뭄미"
+                        android:layout_marginStart="12dp"
+
+                        app:layout_constraintStart_toEndOf="@id/typeImage"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/typeViewBackgroundGuide"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".4"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/typeViewCenterGuide"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_begin="60dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/typeViewBackgroundGuide"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent=".4"/>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/typeViewCenterGuide"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-
-                android:orientation="horizontal"
-                app:layout_constraintGuide_begin="60dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
