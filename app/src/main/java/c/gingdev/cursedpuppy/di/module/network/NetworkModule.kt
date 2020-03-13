@@ -18,9 +18,9 @@ import javax.inject.Singleton
 
 @Module
 object NetworkModule {
-    private val CONNECT_TIMEOUT: Long = 30 //Sec
-    private val WRITE_TIMEOUT: Long = 30 //Sec
-    private val READ_TIMEOUT: Long = 30 //Sec
+    private val CONNECT_TIMEOUT: Long = 5 //Sec
+    private val WRITE_TIMEOUT: Long = 5 //Sec
+    private val READ_TIMEOUT: Long = 5 //Sec
     private val baseUrl: String = "https://mmm.nigga.shop"
 //    or mmm.forial.tk
 

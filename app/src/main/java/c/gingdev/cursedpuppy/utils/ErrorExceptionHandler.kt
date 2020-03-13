@@ -5,9 +5,8 @@ import android.app.Application
 import android.content.Intent
 import android.os.Bundle
 import android.os.Process
-import c.gingdev.cursedpuppy.base.App
 import c.gingdev.cursedpuppy.base.BaseActivityLifecycleCallbacks
-import c.gingdev.cursedpuppy.ui.etc.ErrorActivity
+import c.gingdev.cursedpuppy.ui.main.ErrorActivity
 import java.io.PrintWriter
 import java.io.StringWriter
 import kotlin.system.exitProcess

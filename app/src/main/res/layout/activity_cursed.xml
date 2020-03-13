@@ -7,6 +7,10 @@
         <variable
             name="puppyModel"
             type="c.gingdev.cursedpuppy.data.models.PuppyModel" />
+
+        <variable
+            name="translator"
+            type="c.gingdev.cursedpuppy.ui.etc.CursedTranslatorViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,11 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
+        android:fitsSystemWindows="true"
         android:background="@color/colorWhite">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/toolBarLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true">
 
             <androidx.appcompat.widget.Toolbar
@@ -40,81 +46,100 @@
                     android:layout_gravity="center"
                     android:gravity="center"/>
             </androidx.appcompat.widget.Toolbar>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cursedTypeView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/inputWrapLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:minHeight="160dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolBarLayout">
+
+            <EditText
+                android:id="@+id/inputText"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
 
-                app:layout_constraintTop_toBottomOf="@id/toolBarCursed">
+                android:textAlignment="center"
+                android:ems="8"
+                style="@style/TextAppearance.AppCompat.Large"
+                android:onTextChanged="@{translator::onTextChanged}"
+                android:windowSoftInputMode="adjustResize"
 
-                <View
-                    android:id="@+id/toolBarExpandView"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                android:padding="4dp"
+                android:background="@drawable/bg_black_line_rounded"
 
-                    android:background="@color/none"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/typeViewBackgroundGuide" />
+            <TextView
+                android:id="@+id/resultText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/typeView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:ems="8"
+                style="@style/TextAppearance.AppCompat.Large"
 
-                    android:layout_margin="24dp"
-                    android:elevation="4dp"
-                    android:padding="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/inputText"/>
 
-                    android:background="@drawable/bg_white_rectangle_rounded"
-                    android:backgroundTint="@color/mainYellow"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" >
+            <TextView
+                android:id="@+id/typeString"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
 
-                    <ImageView
-                        android:id="@+id/typeImage"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                android:text="멈"
+                android:textAlignment="center"
+                android:textSize="28sp"
+                android:textStyle="bold"
 
-                        android:src="@drawable/ic_launcher_foreground"
-                        android:scaleType="fitCenter"
 
-                        app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@id/clipboardBtn"
+                app:layout_constraintStart_toStartOf="@id/resultText"
+                app:layout_constraintTop_toTopOf="@id/clipboardBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/clipboardBtn" />
 
-                        app:layout_constraintStart_toStartOf="parent"/>
+            <ImageButton
+                android:id="@+id/clipboardBtn"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
 
-                        android:text="멈뭄미"
-                        android:layout_marginStart="12dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_clipboard"
+                android:background="@color/none"
 
-                        app:layout_constraintStart_toEndOf="@id/typeImage"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintStart_toStartOf="@id/resultText"
+                app:layout_constraintEnd_toEndOf="@id/resultText"
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintTop_toBottomOf="@id/resultText" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/typeViewBackgroundGuide"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+            <ImageButton
+                android:id="@+id/deleteTxtBtn"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
 
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent=".4"/>
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_trash_bin"
+                android:background="@color/none"
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/typeViewCenterGuide"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                app:layout_constraintStart_toEndOf="@id/clipboardBtn"
+                app:layout_constraintEnd_toEndOf="@id/resultText"
+                app:layout_constraintTop_toTopOf="@id/clipboardBtn"
+                app:layout_constraintBottom_toBottomOf="@+id/clipboardBtn" />
 
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_begin="60dp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

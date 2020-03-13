@@ -1,14 +1,14 @@
-package c.gingdev.cursedpuppy.ui.etc
+package c.gingdev.cursedpuppy.ui.main
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.databinding.DataBindingUtil
 import c.gingdev.cursedpuppy.BR
 import c.gingdev.cursedpuppy.R
 import c.gingdev.cursedpuppy.base.BaseActivity
 import c.gingdev.cursedpuppy.databinding.ActivityErrorBinding
 import c.gingdev.cursedpuppy.utils.ui.checkBackgroundColor
+import c.gingdev.cursedpuppy.utils.ui.statusBarTransparent
 import kotlinx.android.synthetic.main.activity_error.*
 
 class ErrorActivity: BaseActivity() {
@@ -32,6 +32,7 @@ class ErrorActivity: BaseActivity() {
             finish()
         }
 
+        statusBarTransparent()
         checkBackgroundColor(parentView)
     }
 

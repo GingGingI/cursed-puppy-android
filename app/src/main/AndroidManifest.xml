@@ -21,8 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.main.MainActivity"/>
-        <activity android:name=".ui.main.CursedActivity"/>
-        <activity android:name=".ui.etc.ErrorActivity"/>
+        <activity android:name=".ui.main.CursedActivity" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.main.ErrorActivity"/>
     </application>
 
 </manifest>

@@ -43,6 +43,7 @@
                 android:padding="8dp"
                 android:gravity="top|start"
 
+                android:text="@{vm.cursedText}"
                 android:onTextChanged="@{vm::onTextChanged}"
 
                 app:layout_constraintTop_toTopOf="parent"

@@ -3,6 +3,7 @@ package c.gingdev.cursedpuppy.ui.etc
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.databinding.ObservableField
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import c.gingdev.cursedpuppy.data.models.CursedRequestModel
 import c.gingdev.cursedpuppy.data.rest.CurseService
@@ -16,13 +17,16 @@ import javax.inject.Inject
 class CursedTranslatorViewModel @Inject constructor(private val retrofit: Retrofit): ViewModel() {
     private val TAG = "CursedTranslatorVM"
 
-    val cursedText = ObservableField<String>()
+    val cursedText = MutableLiveData<String>()
     var cursedType: String? = null
 
 //    EditText Change Listener
     fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
 //        onText Changed
-        Log.e(TAG, s.toString())
+//        Log.e(TAG, s.toString())
+//        Log.e(TAG, "start $start")
+//        Log.e(TAG, "before $before")
+//        Log.e(TAG, "count $count")
 
         getCursedText(s.toString())
     }
@@ -41,7 +45,7 @@ class CursedTranslatorViewModel @Inject constructor(private val retrofit: Retrof
                     .subscribeOn(Schedulers.io())
                     .doOnSuccess {
                         Log.e(TAG, "success : ${it.success}. text : ${it.text}")
-                        cursedText.set(it.text)
+                        cursedText.postValue(it.text)
                     }.subscribe()
             }
     }

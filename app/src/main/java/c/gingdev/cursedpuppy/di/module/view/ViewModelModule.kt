@@ -14,20 +14,15 @@ import dagger.multibindings.IntoMap
 @Module
 abstract class ViewModelModule {
 
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(MainListViewModel::class)
-//    abstract fun bindMainListViewModel(vm: MainListViewModel): ViewModel
-//
-//    @Binds
-//    @IntoMap
-//    @ViewModelKey(CursedTranslatorViewModel::class)
-//    abstract fun bindCursedTranslatorViewModel(vm: CursedTranslatorViewModel): ViewModel
-//
     @Binds
     @IntoMap
     @ViewModelKey(MainListViewModel::class)
     abstract fun bindCursedDialogListViewModel(vm: MainListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CursedTranslatorViewModel::class)
+    abstract fun bindCursedTranslatorViewModel(vm: CursedTranslatorViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

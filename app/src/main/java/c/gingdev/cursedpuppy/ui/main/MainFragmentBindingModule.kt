@@ -1,8 +1,6 @@
 package c.gingdev.cursedpuppy.ui.main
 
 import c.gingdev.cursedpuppy.ui.list.CursedListDialogFragment
-import c.gingdev.cursedpuppy.ui.etc.CursedTranslatorFragment
-import c.gingdev.cursedpuppy.ui.list.MainListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -1,6 +1,6 @@
 package c.gingdev.cursedpuppy.di.module.view
 
-import c.gingdev.cursedpuppy.ui.etc.ErrorActivity
+import c.gingdev.cursedpuppy.ui.main.ErrorActivity
 import c.gingdev.cursedpuppy.ui.main.CursedActivity
 import c.gingdev.cursedpuppy.ui.main.MainActivity
 import c.gingdev.cursedpuppy.ui.main.MainFragmentBindingModule
